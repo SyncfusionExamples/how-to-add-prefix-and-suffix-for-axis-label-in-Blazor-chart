@@ -1,8 +1,8 @@
 # How-to-add-prefix-and-suffix-for-axis-label-in-Blazor-chart
 
-[Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides support to add prefix and suffix to axis labels. The [LabelFormat](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartAxis.html#Syncfusion_Blazor_Charts_ChartAxis_LabelFormat) property is used to add prefix and suffix to axis labels.
+This article explains how to add prefix and suffix to the axis labels in Blazor chart.
 
-Axis also supports custom label format using placeholders such as {value}K, where the value represents the axis label, for example, 20K.
+The [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to format axis labels using global formatting options like 'N', 'C', and 'P' through the  [LabelFormat](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartAxis.html#Syncfusion_Blazor_Charts_ChartAxis_LabelFormat) property. Additionally, the axis supports the inclusion of prefixes and suffixes to the labels using placeholders such as ${value}K, where "value" represents the axis label, for instance, $20K. 
 
 The following code Illustrates the custom label formatting support for axis label in Blazor chart.
 
@@ -13,12 +13,15 @@ The following code Illustrates the custom label formatting support for axis labe
 @using Syncfusion.Blazor.Charts
 
 <SfChart>
+
     <ChartPrimaryYAxis LabelFormat="${value}K" RangePadding="ChartRangePadding.Auto" />
+
     <ChartPrimaryXAxis RangePadding="ChartRangePadding.Auto" />
 
     <ChartSeriesCollection>
         <ChartSeries DataSource="@Data" XName="XValue" YName="YValue" Type="ChartSeriesType.Column" />
     </ChartSeriesCollection>
+
 </SfChart>
 
 @code {
@@ -39,6 +42,7 @@ The following code Illustrates the custom label formatting support for axis labe
         new ChartData { XValue = 60, YValue = 57 },
         new ChartData { XValue = 70, YValue = 70 },
     };
+
 }
 
 ```
@@ -58,10 +62,3 @@ You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blaz
 For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
 
 If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [Direct-Trac](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
-
-
-
-
-
-
-
