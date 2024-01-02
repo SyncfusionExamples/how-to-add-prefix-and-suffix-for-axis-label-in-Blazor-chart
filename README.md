@@ -1,14 +1,14 @@
 # How-to-add-prefix-and-suffix-for-axis-label-in-Blazor-chart
 
-This article explains how to add prefix and suffix to the axis labels in Blazor chart.
+This article explains how to add prefix and suffix to the axis labels in Blazor Chart Component.
 
-**Adding prefix and suffix to the axis label in blazor column chart**
+**Adding Prefix and Suffix to Axis Labels in Blazor Chart**
 
 The [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to format axis labels using global formatting options like 'N', 'C', and 'P' through the  [LabelFormat](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartAxis.html#Syncfusion_Blazor_Charts_ChartAxis_LabelFormat) property. Additionally, the axis supports the inclusion of prefixes and suffixes to the labels using placeholders such as ${value}K, where "value" represents the axis label, for instance, $20K. 
 
 The following code Illustrates the custom label formatting support for axis label in Blazor chart.
 
-**C#**
+**Index.razor**
 
 ```cshtml
 
@@ -49,7 +49,7 @@ The following code Illustrates the custom label formatting support for axis labe
 
 ```
 
-The following screenshot illustrate the output of the above code snippet.
+The following screenshot illustrates the output of the above code snippet.
 
 **Output**
 
