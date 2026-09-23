@@ -1,66 +1,74 @@
-# How-to-add-prefix-and-suffix-for-axis-label-in-Blazor-chart
+# How to Add Prefix and Suffix to Axis Labels in a Syncfusion Blazor Chart
 
-This article explains how to add prefix and suffix to the axis labels in Blazor Chart Component.
+## Overview
 
-**Adding Prefix and Suffix to Axis Labels in Blazor Chart**
+This sample demonstrates how to customize axis label text in a Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts) by defining a custom `LabelFormat` value on the chart axis. The implementation formats numeric axis values with additional text before and after the generated value using the `${value}` placeholder pattern.
 
-The [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides the support to format axis labels using global formatting options like 'N', 'C', and 'P' through the  [LabelFormat](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartAxis.html#Syncfusion_Blazor_Charts_ChartAxis_LabelFormat) property. Additionally, the axis supports the inclusion of prefixes and suffixes to the labels using placeholders such as ${value}K, where "value" represents the axis label, for instance, $20K. 
+This approach is useful when chart data must be displayed with business-specific units, currency indicators, measurement suffixes, or shorthand notations while preserving automatic axis generation and scaling behavior.
 
-The following code illustrates the custom label formatting support for axis label in Blazor chart.
+## Key Features
 
-**Index.razor**
+- Uses the `SfChart` component from `Syncfusion.Blazor.Charts`.
+- Configures `ChartPrimaryYAxis` with the `LabelFormat` property to inject custom text around axis values.
+- Demonstrates the `${value}` placeholder syntax for axis label formatting.
+- Uses `ChartRangePadding.Auto` on chart axes.
+- Displays data with a `ChartSeries` configured using:
+  - `DataSource`
+  - `XName`
+  - `YName`
+  - `Type`
+- Uses `ChartSeriesType.Column` to render the chart.
+- Binds chart data through a `ChartData` model containing `XValue` and `YValue` properties.
 
-```cshtml
+## Prerequisites
 
-@using Syncfusion.Blazor.Charts
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-<SfChart>
+## How to Run the Project
 
-    <ChartPrimaryYAxis LabelFormat="${value}K" RangePadding="ChartRangePadding.Auto" />
+**Visual Studio 2022**
 
-    <ChartPrimaryXAxis RangePadding="ChartRangePadding.Auto" />
+1. Clone the repository.
+2. Open Visual Studio 2022.
+3. Select **Open a project or solution**.
+4. Browse to the project file:
+ 
+`CustomAxisLabel.csproj`
+ 
+5. Restore NuGet packages if prompted.
+6. Build the project.
+7. Run the application using `Ctrl+F5`.
 
-    <ChartSeriesCollection>
-        <ChartSeries DataSource="@Data" XName="XValue" YName="YValue" Type="ChartSeriesType.Column" />
-    </ChartSeriesCollection>
+**Visual Studio Code**
 
-</SfChart>
+1. Open the repository folder in Visual Studio Code.
+2. Open the integrated terminal.
+3. Navigate to the project directory that contains `CustomAxisLabel.csproj`.
+4. Restore packages:
 
-@code {
-
-    public class ChartData
-    {
-        public double XValue { get; set; }
-        public double YValue { get; set; }
-    }
-
-    public List<ChartData> Data = new List<ChartData>
-    {
-        new ChartData { XValue = 10, YValue = 21 },
-        new ChartData { XValue = 20, YValue = 24 },
-        new ChartData { XValue = 30, YValue = 36 },
-        new ChartData { XValue = 40, YValue = 38 },
-        new ChartData { XValue = 50, YValue = 54 },
-        new ChartData { XValue = 60, YValue = 57 },
-        new ChartData { XValue = 70, YValue = 70 },
-    };
-
-}
-
+```bash
+dotnet restore
 ```
 
-The following screenshot illustrates the output of the above code snippet.
+5. Run the project:
 
-**Output**
+```bash
+dotnet run
+```
 
-![](/prefix-and-suffix-in-axis-label.png)
+6. Open the local application URL displayed in the terminal output.
 
-**Conclusion**
+## Project Structure
 
-I hope you enjoyed learning how to add prefix and suffix for axis labels in Blazor Chart Component.
+- `Pages/Index.razor` - Main sample page that renders the Syncfusion Blazor Chart (`SfChart`). Demonstrates custom axis label formatting using `ChartPrimaryYAxis.LabelFormat="${value}K"` to add a prefix and suffix around generated axis values.
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+## Support and Feedback
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Official documentation for chart axis customization and formatting: https://help.syncfusion.com/chart-sdk/blazor/charts/axis-customization
 
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+## License
+
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
